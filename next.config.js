@@ -34,6 +34,7 @@ const nextConfig = {
   },
   rewrites: async () => {
     return [
+      // Not using this rewrite, i.e. going to /product/wallpaper/:productPageSlug remove the issue
       {
         source: `/:productPageSlug((?:.+)-(?:${Object.values(
           pwConfig.i18n.languages
