@@ -32,19 +32,21 @@ const nextConfig = {
       },
     ],
   },
-  beforeFiles: async () => {
-    return [
+  rewrites: async () => {
+    return {
       // Not using this rewrite, i.e. going to /product/wallpaper/:productPageSlug remove the issue
-      {
-        source: `/:locale/:productPageSlug((?:.+)-(?:${Object.values(
-          pwConfig.i18n.languages
-        )
-          .map((langConf) => langConf.productPathSuffix.wallpaper)
-          .join('|')})$)`,
-        destination: '/:locale/product/wallpaper/:productPageSlug',
-        locale: false,
-      },
-    ];
+      beforeFiles: [
+        {
+          source: `/:locale/:productPageSlug((?:.+)-(?:${Object.values(
+            pwConfig.i18n.languages
+          )
+            .map((langConf) => langConf.productPathSuffix.wallpaper)
+            .join('|')})$)`,
+          destination: '/:locale/product/wallpaper/:productPageSlug',
+          locale: false,
+        },
+      ],
+    };
   },
   serverRuntimeConfig: {
     pw: pwConfig,
