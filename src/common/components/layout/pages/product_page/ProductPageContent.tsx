@@ -1,5 +1,5 @@
-import React from "react";
-import Image from "next/image";
+import React from 'react';
+import Image from 'next/image';
 
 export interface IProduct {
   path: string;
@@ -16,8 +16,8 @@ const ProductPageContent: React.FC<IProductPageContentProps> = ({
   productType,
 }) => {
   return (
-    <div style={{ flexGrow: 1, width: "984px" }}>
-      This is the <em>{productType}</em> product page for{" "}
+    <div style={{ flexGrow: 1, width: '984px' }}>
+      This is the <em>{productType}</em> product page for{' '}
       <strong>{product.path}</strong>
       <br />
       <br />
