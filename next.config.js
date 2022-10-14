@@ -37,13 +37,12 @@ const nextConfig = {
       // Not using this rewrite, i.e. going to /product/wallpaper/:productPageSlug remove the issue
       beforeFiles: [
         {
-          source: `/:locale/:productPageSlug((?:.+)-(?:${Object.values(
+          source: `/:productPageSlug((?:.+)-(?:${Object.values(
             pwConfig.i18n.languages
           )
             .map((langConf) => langConf.productPathSuffix.wallpaper)
             .join('|')})$)`,
-          destination: '/:locale/product/wallpaper/:productPageSlug',
-          locale: false,
+          destination: '/product/wallpaper/:productPageSlug',
         },
       ],
     };
