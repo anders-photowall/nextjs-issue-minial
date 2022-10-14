@@ -32,7 +32,7 @@ const nextConfig = {
       },
     ],
   },
-  rewrites: async () => {
+  beforeFiles: async () => {
     return [
       // Not using this rewrite, i.e. going to /product/wallpaper/:productPageSlug remove the issue
       {
