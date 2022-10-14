@@ -1,11 +1,11 @@
-import type { GetStaticPaths, GetStaticProps } from "next";
-import getConfig from "next/config";
-import { useRouter } from "next/router";
-import React from "react";
-import PageContent from "../../../common/components/layout/PageContent";
+import type { GetStaticPaths, GetStaticProps } from 'next';
+import getConfig from 'next/config';
+import { useRouter } from 'next/router';
+import React from 'react';
+import PageContent from '../../../common/components/layout/PageContent';
 import ProductPageContent, {
   IProduct,
-} from "../../../common/components/layout/pages/product_page/ProductPageContent";
+} from '../../../common/components/layout/pages/product_page/ProductPageContent';
 
 interface IWallpaperProductPageProps {
   product: IProduct;
@@ -20,6 +20,7 @@ const WallpaperProductPage: React.FC<IWallpaperProductPageProps> = ({
   }
   return (
     <PageContent>
+      <div>LOCALE: {router.locale}</div>
       <ProductPageContent
         product={product}
         productType="wallpaper"
@@ -35,7 +36,7 @@ export const getStaticPaths: GetStaticPaths = async (context) => {
   if (process.env.SKIP_BUILD_STATIC_GENERATION) {
     return {
       paths: [],
-      fallback: "blocking",
+      fallback: 'blocking',
     };
   }
 
@@ -75,14 +76,14 @@ export const getStaticPaths: GetStaticPaths = async (context) => {
 
   const paths = [
     {
-      params: { productPageSlug: "static-product-wallpaper" },
-      locale: "us", // commenting out this row removes the issue.
+      params: { productPageSlug: 'static-product-wallpaper' },
+      locale: 'us', // commenting out this row removes the issue.
     },
   ];
 
   return {
     paths: paths,
-    fallback: "blocking",
+    fallback: 'blocking',
   };
 };
 
